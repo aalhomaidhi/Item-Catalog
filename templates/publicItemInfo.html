@@ -1,0 +1,58 @@
+{% include "headerr.html" %}
+{% block content %}
+
+
+<div class='flash'>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+
+    <ul>
+        {% for message in messages %}
+        <li> <strong> {{ message }} </strong> </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+
+</div>
+
+
+{% if item !=[] %}
+<section id="book_list">
+
+
+    <div class="grid-shuffle">
+
+        <ul id="grid" class="row">
+
+
+            <li class="book-item small-12 medium-6 columns" >
+                <div class="bk-img">
+                    <div class="bk-wrapper">
+                        <div class="bk-book bk-bookdefault">
+                            <div class="bk-front">
+                                <div class="bk-cover" style="background-image: url('{{item.imageUrl}}')"></div>
+                            </div>
+                            <div class="bk-back"></div>
+                            <div class="bk-left"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item-details">
+                    <h3 class="book-item_title">{{item.name}}</h3>
+                    <p class="author">{{item.price}}</p>
+                    <p>{{item.description}}</p>
+
+
+                </div>
+
+
+
+            </li>
+
+        </ul>
+    </div>
+</section>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,35 @@
+{% include "headerr.html" %}
+{% block content %}
+<section id="book_list">
+
+
+	<div>
+
+		<ul class="row">
+			<h2> Are you sure you want to delete {{item.name}}? </h2>
+
+			<form action="#" method='post'>
+
+				<li class="book-item small-12 medium-6 columns" 
+
+					<form action="#" method="post">
+
+						<div class="item-details">
+
+							<button type="submit" class="btn btn-default" id="submit">
+								<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Delete</button>
+							<a href='{{url_for('showCategories')}}'>
+								<button type="button" class="btn btn-default delete">
+									<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel</button>
+							</a>
+					</form>
+	</div>
+
+
+
+	</li>
+
+	</ul>
+</section>
+
+{% endblock %}

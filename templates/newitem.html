@@ -1,0 +1,69 @@
+{% include "headerr.html" %}
+{% block content %}
+
+
+<div class='flash'>
+	{% with messages = get_flashed_messages() %}
+	{% if messages %}
+
+	<ul>
+		{% for message in messages %}
+		<li> <strong> {{ message }} </strong> </li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+	{% endwith %}
+
+</div>
+
+<section id="book_list">
+
+
+	<div>
+
+		<ul class="row">
+
+
+			<li class="book-item small-12 medium-6 columns" >
+
+				<form action="#" method="post">
+
+					<div class="item-details">
+						<label for="name">Name:</label>
+						<input type="text" maxlength="50" class="book-item_title" name="name" placeholder="Name of the item">
+
+						<label for="description">Description:</label>
+						<textarea class="book-item_title" maxlength="250" rows="3" name="description" placeholder="Description of the item"></textarea>
+
+						<label for="name">Price:</label>
+						<input type="text" maxlength="50" class="book-item_title" name="price" placeholder="price of the item">
+						<br>
+
+						<label for="name">Imsge:</label>
+						<input type="text" maxlength="50" class="book-item_title" name="url" placeholder="url of the item">
+						<label for="name">Categories:</label>
+
+						<select name="categId" method="GET" action="/">
+							{% for catg in categories %}
+
+							<option value="{{catg.id}}">{{catg.name}}</option>
+							{% endfor %}
+						</select>
+
+						<button type="submit" class="btn btn-default" id="submit" type="submit">
+							<span aria-hidden="true"></span>Create</button>
+						<a href='{{url_for('showCategories')}}>
+									<button type="button" class="btn btn-default delete">
+									<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel</button>
+								</a>
+						</form>
+              </div>
+              
+
+
+            </li>
+
+  </ul>
+  </section>
+
+{% endblock %}
